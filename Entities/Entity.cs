@@ -19,7 +19,7 @@ public class Entity
         this.mdef = MDEF;
         this.spe = SPE;
     }
-    
+    //getters
     public string GetName()
     {
         return name;
@@ -52,9 +52,28 @@ public class Entity
     {
         return spe;
     }
-
+    //setters
+    public void SetHP(int damage)
+    {
+        hp = damage;
+    }
+    public void atkP(Entity target)
+    {
+        target.SetHP(target.GetHP()-((RollForDamage() * this.str())/target.GetDef()));
+    }
+    public void atkM(Entity target)
+    {
+        target.SetHP(target.GetHP()-((RollForDamage() * this.mgk())/target.GetMdef()));
+    }
+    //miscellaneous
     public void DisplayStats()
     {
         System.Console.WriteLine($"{GetName()}(HP:{GetHP()}/{GetMaxHP()}, Str:{GetStr()}, Mgk:{GetMgk()}, Def:{GetDef()}, Mdef:{GetMdef()}, Spe:{GetSpe()})");
+    }
+    protected int RollForDamage()
+    {
+        Random dice = new Random();
+        int roll = dice.Next(0,26);
+        return roll;
     }
 }

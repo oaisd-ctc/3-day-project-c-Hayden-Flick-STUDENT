@@ -4,4 +4,12 @@ public class Player : Entity
     {
 
     }
+    public void atkP(Enemy target)
+    {
+        target.SetHP(target.GetHP()-((this.GetStr() * 5 + RollForDamage())/target.GetDef()));
+    }
+    public void atkM(Enemy target)
+    {
+        target.SetHP(target.GetHP()-((this.GetMgk() * 5 + RollForDamage())/target.GetMdef()));
+    }
 }

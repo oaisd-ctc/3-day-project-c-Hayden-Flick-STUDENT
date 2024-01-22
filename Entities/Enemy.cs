@@ -4,4 +4,12 @@ public class Enemy : Entity
     {
         
     }
+    public void atkP(Player target)
+    {
+        target.SetHP(this.str);
+    }
+    public void atkM(Player target)
+    {
+        target.SetHP(this.mgk);
+    }
 }
