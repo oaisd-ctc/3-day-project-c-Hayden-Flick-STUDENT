@@ -59,11 +59,11 @@ public class Entity
     }
     public void atkP(Entity target)
     {
-        target.SetHP(target.GetHP()-((RollForDamage() * this.str())/target.GetDef()));
+        target.SetHP(target.GetHP()-((RollForDamage() * this.GetStr())/target.GetDef()));
     }
     public void atkM(Entity target)
     {
-        target.SetHP(target.GetHP()-((RollForDamage() * this.mgk())/target.GetMdef()));
+        target.SetHP(target.GetHP()-((RollForDamage() * this.GetMgk())/target.GetMdef()));
     }
     //miscellaneous
     public void DisplayStats()
