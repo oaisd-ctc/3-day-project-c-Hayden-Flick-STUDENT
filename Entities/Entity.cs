@@ -8,6 +8,7 @@ public class Entity
     protected int def;
     protected int mdef;
     protected int spe;
+    public bool alive;
     public Entity(string NAME,  int HP, int STR, int MGK, int DEF, int MDEF, int SPE)
     {
         this.name = NAME;
@@ -18,6 +19,7 @@ public class Entity
         this.def = DEF;
         this.mdef = MDEF;
         this.spe = SPE;
+        this.alive = true;
     }
     //getters
     public string GetName()
@@ -52,6 +54,11 @@ public class Entity
     {
         return spe;
     }
+
+    public bool GetAlive()
+    {
+        return alive;
+    }
     //setters
     public void SetHP(int damage)
     {
@@ -68,7 +75,14 @@ public class Entity
     //miscellaneous
     public void DisplayStats()
     {
-        System.Console.WriteLine($"{GetName()}(HP:{GetHP()}/{GetMaxHP()}, Str:{GetStr()}, Mgk:{GetMgk()}, Def:{GetDef()}, Mdef:{GetMdef()}, Spe:{GetSpe()})");
+        if(this.alive)
+        {
+            System.Console.WriteLine($"{GetName()}(HP:{GetHP()}/{GetMaxHP()}, Str:{GetStr()}, Mgk:{GetMgk()}, Def:{GetDef()}, Mdef:{GetMdef()}, Spe:{GetSpe()})");
+        }
+        else
+        {
+            System.Console.WriteLine($"{GetName()}(Defeated HP:{GetHP()}/{GetMaxHP()})");
+        }
     }
     protected int RollForDamage()
     {
