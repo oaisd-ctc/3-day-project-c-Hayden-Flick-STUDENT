@@ -66,7 +66,7 @@ public class Entity
     }
     public void atkP(Entity target)
     {
-        target.SetHP(target.GetHP()-((this.GetStr() * 5 + RollForDamage())/target.GetDef()));
+        target.SetHP(target.GetHP()-(((this.GetStr() + this.GetSpe()) * 5 + RollForDamage())/(target.GetDef() + target.GetSpe())));
         if(target.GetHP() <= 0)
         {
             target.SetHP(0);
@@ -75,8 +75,7 @@ public class Entity
     }
     public void atkM(Entity target)
     {
-        target.SetHP(target.GetHP()-((this.GetMgk() * 5 + RollForDamage())/target.GetMdef()));
-        if(target.GetHP() <= 0)
+        target.SetHP(target.GetHP()-(((this.GetStr() + this.GetSpe()) * 5 + RollForDamage())/(target.GetDef() + target.GetSpe())));
         {
             target.SetHP(0);
             target.alive = false;
