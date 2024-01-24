@@ -11,5 +11,6 @@ public class Program
         player1.atkP(enemy1);
         player1.DisplayStats();
         enemy1.DisplayStats();
+
     }
 }

@@ -6,10 +6,10 @@ public class Enemy : Entity
     }
     public void atkP(Player target)
     {
-        target.SetHP(this.str);
+        target.SetHP(target.GetHP()-((this.GetStr() * 5 + RollForDamage())/target.GetDef()));
     }
     public void atkM(Player target)
     {
-        target.SetHP(this.mgk);
+        target.SetHP(target.GetHP()-((this.GetMgk() * 5 + RollForDamage())/target.GetMdef()));
     }
 }
