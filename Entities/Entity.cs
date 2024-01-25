@@ -8,6 +8,7 @@ public class Entity
     protected int def;
     protected int mdef;
     protected int spe;
+    public bool alive;
     public Entity(string NAME,  int HP, int STR, int MGK, int DEF, int MDEF, int SPE)
     {
         this.name = NAME;
@@ -18,6 +19,7 @@ public class Entity
         this.def = DEF;
         this.mdef = MDEF;
         this.spe = SPE;
+        this.alive = true;
     }
     //getters
     public string GetName()
@@ -52,6 +54,11 @@ public class Entity
     {
         return spe;
     }
+
+    public bool GetAlive()
+    {
+        return alive;
+    }
     //setters
     public void SetHP(int damage)
     {
@@ -59,16 +66,32 @@ public class Entity
     }
     public void atkP(Entity target)
     {
-        target.SetHP(target.GetHP()-((this.GetStr() * 5 + RollForDamage())/target.GetDef()));
+        target.SetHP(target.GetHP()-(((this.GetStr() + this.GetSpe()) * 5 + RollForDamage())/(target.GetDef() + target.GetSpe())));
+        if(target.GetHP() <= 0)
+        {
+            target.SetHP(0);
+            target.alive = false;
+        }
     }
     public void atkM(Entity target)
     {
-        target.SetHP(target.GetHP()-((this.GetMgk() * 5 + RollForDamage())/target.GetMdef()));
+        target.SetHP(target.GetHP()-(((this.GetStr() + this.GetSpe()) * 5 + RollForDamage())/(target.GetDef() + target.GetSpe())));
+        {
+            target.SetHP(0);
+            target.alive = false;
+        }
     }
     //miscellaneous
     public void DisplayStats()
     {
-        System.Console.WriteLine($"{GetName()}(HP:{GetHP()}/{GetMaxHP()}, Str:{GetStr()}, Mgk:{GetMgk()}, Def:{GetDef()}, Mdef:{GetMdef()}, Spe:{GetSpe()})");
+        if(this.alive)
+        {
+            System.Console.WriteLine($"{GetName()}(HP:{GetHP()}/{GetMaxHP()}, Str:{GetStr()}, Mgk:{GetMgk()}, Def:{GetDef()}, Mdef:{GetMdef()}, Spe:{GetSpe()})");
+        }
+        else
+        {
+            System.Console.WriteLine($"{GetName()}(Defeated HP:{GetHP()}/{GetMaxHP()})");
+        }
     }
     protected int RollForDamage()
     {
