@@ -10,15 +10,16 @@ public class Program
         Enemy enemy1 = new Enemy("Goblin", 75, 3, 1, 3, 3, 4);
         Enemy enemy2 = new Enemy("Orc", 125, 4, 3, 4, 2, 3);
         Enemy enemy3 = new Enemy("Demon", 200, 4, 5, 5, 4, 1);
-        player1.DisplayStats();
-        player2.DisplayStats();
-        player3.DisplayStats();
-        enemy1.DisplayStats();
-        enemy2.DisplayStats();
-        enemy3.DisplayStats();
-        // player1.atkP(enemy1);
-        player1.DisplayStats();
-        enemy1.DisplayStats();
+        // player1.DisplayStats();
+        // player2.DisplayStats();
+        // player3.DisplayStats();
+        // enemy1.DisplayStats();
+        // enemy2.DisplayStats();
+        // enemy3.DisplayStats();
+        // // player1.atkP(enemy1);
+        // player1.DisplayStats();
+        // enemy1.DisplayStats();
+        DisplayField(player1, player2, player3, enemy1, enemy2, enemy3);
         Player[] arrayPlayer = { player1, player2, player3 };
         Enemy[] arrayEnemy = { enemy1, enemy2, enemy3 };
         int n = 0;
@@ -85,5 +86,18 @@ public class Program
         //   }
 
 
+    }
+
+    public static void DisplayField(Player player1, Player player2, Player player3, Enemy enemy1, Enemy enemy2, Enemy enemy3)
+    {
+        System.Console.WriteLine("==============================");
+        player1.DisplayStats();
+        player2.DisplayStats();
+        player3.DisplayStats();
+        System.Console.WriteLine("---------------");
+        enemy1.DisplayStats();
+        enemy2.DisplayStats();
+        enemy3.DisplayStats();
+        System.Console.WriteLine("==============================");
     }
 }
