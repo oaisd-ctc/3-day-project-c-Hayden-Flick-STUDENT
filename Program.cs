@@ -88,6 +88,10 @@ public class Program
                 }
             default:
                 break;
+                if(n < 3)
+                {
+                    n++
+                }
         }
         // enemy1.DisplayStats();
           }
