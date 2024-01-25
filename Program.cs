@@ -10,20 +10,28 @@ public class Program
         Enemy enemy1 = new Enemy("Goblin", 75, 3, 1, 3, 3, 4);
         Enemy enemy2 = new Enemy("Orc", 125, 4, 3, 4, 2, 3);
         Enemy enemy3 = new Enemy("Demon", 200, 4, 5, 5, 4, 1);
+        // player1.DisplayStats();
+        // player2.DisplayStats();
+        // player3.DisplayStats();
+        // enemy1.DisplayStats();
+        // enemy2.DisplayStats();
+        // enemy3.DisplayStats();
+        // // player1.atkP(enemy1);
+        // player1.DisplayStats();
+        // enemy1.DisplayStats();
+        Player[] arrayPlayer = { player1, player2, player3 };
+        Enemy[] arrayEnemy = { enemy1, enemy2, enemy3 };
+        int n = 0;
+        //while(enemyPartyStatus == alive && allyPartyStatus == alive)
+        while((player1.GetAlive() || player2.GetAlive() || player3.GetAlive()) || (enemy1.GetAlive() || enemy2.GetAlive() || enemy3.GetAlive()))
+         {
         player1.DisplayStats();
         player2.DisplayStats();
         player3.DisplayStats();
         enemy1.DisplayStats();
         enemy2.DisplayStats();
         enemy3.DisplayStats();
-        // player1.atkP(enemy1);
-        player1.DisplayStats();
-        enemy1.DisplayStats();
-        Player[] arrayPlayer = { player1, player2, player3 };
-        Enemy[] arrayEnemy = { enemy1, enemy2, enemy3 };
-        int n = 0;
-        //while(enemyPartyStatus == alive && allyPartyStatus == alive)
-        //  {
+
         Console.WriteLine("Please choose an action. " + arrayPlayer[n].GetName() + ".");
         Console.WriteLine("1.Attack");
         Console.WriteLine("2.Magic Attack");
@@ -81,8 +89,8 @@ public class Program
             default:
                 break;
         }
-        enemy1.DisplayStats();
-        //   }
+        // enemy1.DisplayStats();
+          }
 
 
     }
