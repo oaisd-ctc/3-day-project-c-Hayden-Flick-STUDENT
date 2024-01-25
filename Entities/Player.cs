@@ -6,7 +6,7 @@ public class Player : Entity
     }
     public void atkP(Enemy target)
     {
-        target.SetHP(target.GetHP()-((this.GetStr() * 5 + RollForDamage())/target.GetDef()));
+        target.SetHP(target.GetHP()-(((this.GetStr() + this.GetSpe()) * 5 + RollForDamage())/(target.GetDef() + target.GetSpe())));
         if(target.GetHP() <= 0)
         {
             target.SetHP(0);
@@ -15,7 +15,7 @@ public class Player : Entity
     }
     public void atkM(Enemy target)
     {
-        target.SetHP(target.GetHP()-((this.GetMgk() * 5 + RollForDamage())/target.GetMdef()));
+        target.SetHP(target.GetHP()-(((this.GetStr() + this.GetSpe()) * 5 + RollForDamage())/(target.GetDef() + target.GetSpe())));
         if(target.GetHP() <= 0)
         {
             target.SetHP(0);
