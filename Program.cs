@@ -10,16 +10,6 @@ public class Program
         Enemy enemy1 = new Enemy("Goblin", 75, 3, 1, 3, 3, 4);
         Enemy enemy2 = new Enemy("Orc", 125, 4, 3, 4, 2, 3);
         Enemy enemy3 = new Enemy("Demon", 200, 4, 5, 5, 4, 1);
-        player1.DisplayStats();
-        enemy1.DisplayStats();
-        player1.atkP(enemy1);
-        player1.DisplayStats();
-        enemy1.DisplayStats();
-        player1.atkP(enemy1);
-        enemy1.DisplayStats();
-        player1.atkP(enemy1);
-        enemy1.DisplayStats();
-        player1.atkP(enemy1);
-        enemy1.DisplayStats();
+    
     }
 }
