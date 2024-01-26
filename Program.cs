@@ -25,14 +25,17 @@ public class Program
         enemy2.DisplayStats();
         enemy3.DisplayStats();
     }
-    public static void DisplayStatsForAll()
+    public static void DisplayField(Player player1, Player player2, Player player3, Enemy enemy1, Enemy enemy2, Enemy enemy3)
     {
+        System.Console.WriteLine("==============================");
         player1.DisplayStats();
         player2.DisplayStats();
         player3.DisplayStats();
+        System.Console.WriteLine("---------------");
         enemy1.DisplayStats();
         enemy2.DisplayStats();
         enemy3.DisplayStats();
+        System.Console.WriteLine("==============================");
     }
     public static bool CheckIfBattleIsOver()
     {
