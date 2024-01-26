@@ -1,4 +1,8 @@
+--Overview--
+
 Generic RPG Combat System (henceforth referred to as "the game") is a half-game demonstrating the concept of a "turn-based combat system". Currently the project is in a partially-functional limbo.
+
+--Game Details--
 
 The game uses a command line input system to control a set of 3 player characters and an RNG system to control a set of 3 enemy characters. The goal of the game is for the player characters to defeat all the enemy characters. 
 
