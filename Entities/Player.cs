@@ -6,18 +6,24 @@ public class Player : Entity
     }
     public void atkP(Enemy target)
     {
+        Console.WriteLine("-_-_-_-_-_-_-_-");
+        Console.WriteLine($"{this.GetName()} attacked {target.GetName()}");
         target.SetHP(target.GetHP()-(((this.GetStr() * 5 + RollForDamage())/target.GetDef()) + (this.GetSpe()/target.GetSpe())));
         if(target.GetHP() <= 0)
         {
+            Console.WriteLine($"{target.GetName()} has been defeated.");
             target.SetHP(0);
             target.alive = false;
         }
     }
     public void atkM(Enemy target)
     {
+        Console.WriteLine("-_-_-_-_-_-_-_-");
+        Console.WriteLine($"{this.GetName()} unleashed a spell on {target.GetName()}");
         target.SetHP(target.GetHP()-(((this.GetMgk() * 5 + RollForDamage())/target.GetMdef()) + (this.GetSpe()/target.GetSpe())));
         if(target.GetHP() <= 0)
         {
+            Console.WriteLine($"{target.GetName()} has been defeated.");
             target.SetHP(0);
             target.alive = false;
         }
