@@ -75,11 +75,11 @@ public class Program
     {
         for(int n = 0; n <= arrayPlayer.Length - 1; n++)
         {
+            DisplayField(player1, player2, player3, enemy1, enemy2, enemy3);
             if(!arrayPlayer[n].GetAlive())
             {
                 break;
             }
-                DisplayStatsForAll();
                 Console.WriteLine("Please choose an action, " + arrayPlayer[n].GetName() + ".");
                 Console.WriteLine("1.Attack");
                 Console.WriteLine("2.Magic Attack");
@@ -154,7 +154,8 @@ public class Program
     {
         for(int m = 0; m <= arrayEnemy.Length - 1; m++)
         {
-            DisplayStatsForAll();
+
+            DisplayField(player1, player2, player3, enemy1, enemy2, enemy3);
            Random rand = new Random();
            int attackType = rand.Next(1, 3);
            int playerAttacked = rand.Next(0, 3);
