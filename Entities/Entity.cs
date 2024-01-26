@@ -62,21 +62,31 @@ public class Entity
     //setters
     public void SetHP(int damage)
     {
+        if(hp > 0)
+        {
+            Console.WriteLine($"{this.GetName()} took {hp - damage} damage.");
+        }
         hp = damage;
     }
     public void atkP(Entity target)
     {
+        Console.WriteLine("-_-_-_-_-_-_-_-");
+        Console.WriteLine($"{this.GetName()} attacked {target.GetName()}");
         target.SetHP(target.GetHP()-(((this.GetStr() * 5 + RollForDamage())/target.GetDef()) + (this.GetSpe()/target.GetSpe())));
         if(target.GetHP() <= 0)
         {
+            Console.WriteLine($"{target.GetName()} has been defeated.");
             target.SetHP(0);
             target.alive = false;
         }
     }
     public void atkM(Entity target)
     {
+        Console.WriteLine("-_-_-_-_-_-_-_-");
+        Console.WriteLine($"{this.GetName()} unleashed a spell on {target.GetName()}");
         target.SetHP(target.GetHP()-(((this.GetMgk() * 5 + RollForDamage())/target.GetMdef()) + (this.GetSpe()/target.GetSpe())));
         {
+            Console.WriteLine($"{target.GetName()} has been defeated.");
             target.SetHP(0);
             target.alive = false;
         }
